@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
   // 🔥 YOUR CODE GOES HERE 🔥
   // Write the recipe (algorithm) in the comments. Then, write the code.
+  
   let rideFirstName = ride.passengerDetails.first
   let rideLastName = ride.passengerDetails.last
   let rideNumber = ride.passengerDetails.phoneNumber
@@ -23,16 +24,19 @@ document.addEventListener('DOMContentLoaded', async function() {
   let dropCity = ride.dropoffLocation.city
   let dropState = ride.dropoffLocation.state
   let dropZip = ride.dropoffLocation.zip
-  
-  // let serviceLevel
-  // if (SOMETHING TO GET PURPLE) {
-  //   console.log(``)
-  // } else if (SOMETHING TO GET XL){
-  //   console.log(``)
-  // } else{
-    
-  // }
+  let numberOfPassengers = ride.numberOfPassengers
+  let purpleRequested = ride.purpleRequested
 
-  console.log(`Noober X Passenger: ${rideFirstName} ${rideLastName} - ${rideNumber} Pickup at ${pickupAddress}, ${pickupCity}, ${pickupState} ${pickupZip}. Dropoff at ${dropAddress}, ${dropCity}, ${dropState}${dropZip} `)
+  let serviceLevel
+
+    if (purpleRequested == true) {
+    serviceLevel = `Noober Purple`
+  } else if (numberOfPassengers >= 3){
+    serviceLevel = `Noober XL`
+  } else {
+    serviceLevel = `Noober X`
+  }
+
+  console.log( `${serviceLevel} Passenger: ${rideFirstName} ${rideLastName} - ${rideNumber}. Pickup at: ${pickupAddress}, ${pickupCity}, ${pickupState} ${pickupZip}. Dropoff at: ${dropAddress}, ${dropCity}, ${dropState} ${dropZip} `)
   // 🔥 YOUR CODE ENDS HERE 🔥
 })
